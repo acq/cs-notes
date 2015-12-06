@@ -35,3 +35,11 @@ If the filters don't have the same properties, one can only evaluate the number 
 * Google Chrome stores a bloom filter in the browser for a list of malicious URLs. If a URL matches the bloom filter, a request to Google is made to ensure it is indeed a malicious URL.
 
 * Medium uses a bloom filter to avoid recommending previously read articles.
+
+### Extensions
+
+Instead of storing just one bit per cell, a bloom filter can be used as an approximate counter. The size of counters is generally ~3-4 bits.
+
+This also allows to delete elements.
+
+Caution: it is impossible to exceed the initial capacitiy without recreating the bloom filter (alternative: CBF (counting bloom filters) which can scale but require 50% more space).
