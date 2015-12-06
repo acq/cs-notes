@@ -27,3 +27,11 @@ Bloom filters with same bit array size and same hash functions have trivial unio
 The union is lossless but the intersection may result in more false positives.
 
 If the filters don't have the same properties, one can only evaluate the number of elements in the resulting sets though approximations.
+
+### Uses ([Source](https://en.wikipedia.org/wiki/Bloom_filter#Examples))
+
+* Akamai uses bloom filters to prevent caching of "one-hit wonders" (unique requests: approx 75% of traffic). If a request is not already in the bloom filter, it is added but not cached. Only request already present in the bloom filter will be cached.
+
+* Google Chrome stores a bloom filter in the browser for a list of malicious URLs. If a URL matches the bloom filter, a request to Google is made to ensure it is indeed a malicious URL.
+
+* Medium uses a bloom filter to avoid recommending previously read articles.
